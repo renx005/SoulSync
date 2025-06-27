@@ -1,0 +1,162 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    
+    --background: 260 60% 99%;
+    --foreground: 260 25% 11%;
+
+    --card: 260 60% 99%;
+    --card-foreground: 260 25% 11%;
+
+    --popover: 260 60% 99%;
+    --popover-foreground: 260 25% 11%;
+
+    --primary: 260 82% 74%;
+    --primary-foreground: 260 100% 99%;
+
+    --secondary: 260 35% 94%;
+    --secondary-foreground: 260 25% 11%;
+
+    --muted: 260 35% 94%;
+    --muted-foreground: 260 20% 55%;
+
+    --accent: 260 35% 94%;
+    --accent-foreground: 260 25% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 35% 90%;
+    --input: 260 35% 90%;
+    --ring: 260 82% 74%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 260 25% 11%;
+    --foreground: 260 60% 99%;
+
+    --card: 260 25% 11%;
+    --card-foreground: 260 60% 99%;
+
+    --popover: 260 25% 11%;
+    --popover-foreground: 260 60% 99%;
+
+    --primary: 260 82% 74%;
+    --primary-foreground: 260 60% 99%;
+
+    --secondary: 260 20% 20%;
+    --secondary-foreground: 260 60% 99%;
+
+    --muted: 260 20% 20%;
+    --muted-foreground: 260 20% 80%;
+
+    --accent: 260 20% 20%;
+    --accent-foreground: 260 60% 99%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 20% 25%;
+    --input: 260 20% 25%;
+    --ring: 260 60% 70%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply h-full antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  #root {
+    @apply h-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .pulse {
+    @apply animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite];
+  }
+
+  .glassmorphism {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+  
+  .mobile-container {
+    @apply min-h-full max-w-md mx-auto relative overflow-hidden flex flex-col;
+  }
+
+  .page-container {
+    @apply flex-1 pt-16 pb-20 px-4 overflow-y-auto;
+  }
+  
+  .button-primary {
+    @apply bg-mindscape-primary text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-mindscape-secondary focus:ring-2 focus:ring-mindscape-light focus:ring-offset-2;
+  }
+  
+  .button-secondary {
+    @apply bg-mindscape-light text-mindscape-tertiary rounded-full px-6 py-3 font-medium transition-all hover:bg-mindscape-light/80;
+  }
+  
+  .button-crisis {
+    @apply bg-crisis text-white rounded-full px-4 py-2 font-medium transition-all hover:bg-crisis-hover animate-pulse-soft;
+  }
+  
+  .input-primary {
+    @apply bg-background border border-border rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none transition-all;
+  }
+  
+  .card-primary {
+    @apply bg-white rounded-xl p-4 shadow-sm border border-border/50 transition-all hover:shadow-md;
+  }
+  
+  .card-highlight {
+    @apply bg-gradient-to-br from-mindscape-light to-mindscape-light/50 rounded-xl p-4 border border-mindscape-primary/20;
+  }
+}
